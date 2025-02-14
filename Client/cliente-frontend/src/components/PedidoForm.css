@@ -1,27 +1,31 @@
 .order-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 20px;
   background: linear-gradient(135deg, #9aa1ff, #c4e2fa);
+  min-height: 100vh;
+}
+
+.order-box, .order-list {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 40%;
 }
 
 .order-box {
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
-  width: 350px;
 }
 
-.order-box h2 {
-  margin-bottom: 20px;
+.order-box h2, .order-list h2 {
+  margin-bottom: 15px;
   color: #333;
 }
 
 input, textarea {
-  width: 300px;
+  width: calc(100% - 20px);
   padding: 10px;
   margin: 10px 0;
   border: 1px solid #ccc;
@@ -49,4 +53,132 @@ textarea {
 
 .order-button:hover {
   background: #ff5a78;
+}
+
+.order-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.order-list ul {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.order-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 95%;
+  background: #f9f9f9;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.order-info {
+  flex: 1;
+  text-align: left;
+  padding-right: 15px;
+  margin-left: 10px;
+  max-width: 70%; /* Limita a largura máxima */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.order-info strong {
+  font-size: 16px;
+  color: #333;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.order-actions {
+  display: flex;
+  gap: 8px;
+  margin-right: 10px;
+}
+
+.order-actions button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.details-button {
+  background: #4caf50;
+  color: white;
+}
+
+.cancel-button {
+  background: #ff9800;
+  color: white;
+}
+
+.delete-button {
+  background: #f44336;
+  color: white;
+}
+
+.details-button:hover {
+  background: #45a049;
+}
+
+.cancel-button:hover {
+  background: #e68900;
+}
+
+.delete-button:hover {
+  background: #d32f2f;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.modal-content h2 {
+  text-align: center;
+  margin-top: 0;
+  color: #333;
+}
+
+.modal-content p {
+  margin: 15px 0;
+  color: #555;
+}
+
+.modal-content button {
+  margin-top: 20px;
 }
