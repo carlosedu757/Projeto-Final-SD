@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./AuthPage.css";
-import PerdidoForm from "./PedidoForm";
+import PedidoForm from "./PedidoForm";
 
 const AuthPage = () => {
   const [isRegister, setIsRegister] = useState(false);
@@ -14,13 +14,18 @@ const AuthPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(isRegister ? "Registrando usuário" : "Fazendo login", formData);
-    setIsLoggedIn(true);
+    
+    if (!isRegister) {
+      setIsLoggedIn(true);
+    } else {
+      alert("Registro concluído! Agora faça login.");
+      setIsRegister(false);
+      setFormData({ name: "", email: "", password: "" });
+    }
   };
 
   if (isLoggedIn) {
-    return (
-      <PerdidoForm/>
-    );
+    return <PedidoForm />;
   }
 
   return (
