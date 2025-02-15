@@ -7,6 +7,14 @@ const PedidoForm = () => {
   const [submitted, setSubmitted] = useState(false);
   const [showDetailsModal, setShowDetailsModal] = useState(false);
   const [selectedOrder, setSelectedOrder] = useState(null);
+  const [showUserModal, setShowUserModal] = useState(false);
+  const [showEditUserModal, setShowEditUserModal] = useState(false); // Modal de edição de usuário
+  const [username, setUsername] = useState("Usuário");
+  const [userEmail, setUserEmail] = useState("usuario@exemplo.com"); // Estado para o email
+  const [userPassword, setUserPassword] = useState(""); // Estado para a senha
+  const [editedUsername, setEditedUsername] = useState(username); // Estado para o nome editável
+  const [editedEmail, setEditedEmail] = useState(userEmail); // Estado para o email editável
+  const [editedPassword, setEditedPassword] = useState(""); // Estado para a senha editável
 
   const handleChange = (e) => {
     setOrder({ ...order, [e.target.name]: e.target.value });
@@ -61,8 +69,86 @@ const PedidoForm = () => {
     setSelectedOrder(null);
   };
 
+  const logout = () => {
+    window.location.href = "/";
+  };
+
+  const deleteUser = () => {
+    alert("Usuário deletado!");
+    window.location.href = "/";
+  };
+
+  // Função para abrir o modal de edição de usuário
+  const openEditUserModal = () => {
+    setEditedUsername(username); // Preenche o campo com o nome atual
+    setEditedEmail(userEmail); // Preenche o campo com o email atual
+    setEditedPassword(""); // Limpa o campo de senha
+    setShowEditUserModal(true);
+  };
+
+  // Função para salvar as alterações do usuário
+  const saveUserChanges = () => {
+    setUsername(editedUsername); // Atualiza o nome do usuário
+    setUserEmail(editedEmail); // Atualiza o email do usuário
+    setUserPassword(editedPassword); // Atualiza a senha do usuário
+    setShowEditUserModal(false); // Fecha o modal de edição
+    alert("Alterações salvas com sucesso!");
+  };
+
   return (
     <div className="order-container">
+      {/* Navbar */}
+      <div className="navbar">
+        <span>{username}</span>
+        <button onClick={() => setShowUserModal(true)}>Perfil</button>
+        <button onClick={logout}>Sair</button>
+      </div>
+
+      {/* Modal de Perfil do Usuário */}
+      {showUserModal && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <h2>Perfil do Usuário</h2>
+            <button onClick={openEditUserModal}>Editar Usuário</button>
+            <button onClick={deleteUser}>Deletar Usuário</button>
+            <button className="close-button" onClick={() => setShowUserModal(false)}>×</button>
+          </div>
+        </div>
+      )}
+
+      {/* Modal de Edição de Usuário */}
+      {showEditUserModal && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <h2>Editar Usuário</h2>
+            <input
+              type="text"
+              value={editedUsername}
+              onChange={(e) => setEditedUsername(e.target.value)}
+              placeholder="Nome do usuário"
+              style={{ width: "100%", padding: "10px", margin: "10px 0", fontSize: "16px" }}
+            />
+            <input
+              type="email"
+              value={editedEmail}
+              onChange={(e) => setEditedEmail(e.target.value)}
+              placeholder="Email do usuário"
+              style={{ width: "100%", padding: "10px", margin: "10px 0", fontSize: "16px" }}
+            />
+            <input
+              type="password"
+              value={editedPassword}
+              onChange={(e) => setEditedPassword(e.target.value)}
+              placeholder="Nova senha"
+              style={{ width: "100%", padding: "10px", margin: "10px 0", fontSize: "16px" }}
+            />
+            <button onClick={saveUserChanges}>OK</button>
+            <button className="close-button" onClick={() => setShowEditUserModal(false)}>×</button>
+          </div>
+        </div>
+      )}
+
+      {/* Modal de Detalhes do Pedido */}
       {showDetailsModal && selectedOrder && (
         <div className="modal-overlay">
           <div className="modal-content">
@@ -99,6 +185,7 @@ const PedidoForm = () => {
         </div>
       )}
 
+      {/* Formulário de Pedido */}
       <div className="order-box">
         <h2>Fazer Pedido</h2>
         {submitted && <p>Pedido enviado com sucesso!</p>}
@@ -132,6 +219,7 @@ const PedidoForm = () => {
         </form>
       </div>
 
+      {/* Lista de Pedidos */}
       <div className="order-list">
         <h2>Pedidos Cadastrados</h2>
         {orders.length === 0 ? (
