@@ -19,7 +19,7 @@ func main() {
 
 	client := pb.NewNotificationServiceClient(conn)
 
-	orderID := int32(2)
+	orderID := int32(15)
 	response, err := client.GetOrderStatus(context.Background(), &pb.OrderRequest{OrderId: orderID})
 	if err != nil {
 		log.Fatalf("Erro ao chamar GetOrderStatus: %v", err)

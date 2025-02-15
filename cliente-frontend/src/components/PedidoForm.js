@@ -1,9 +1,21 @@
 import React, { useState, useEffect } from "react";
 import "./PedidoForm.css";
 
+const OrderStatus = {
+  CREATED: { value: 0, description: "Criado" },
+  WAITING_PAYMENT: { value: 1, description: "Aguardando Pagamento" },
+  APROVED: { value: 2, description: "Aprovado" },
+  DENIED: { value: 3, description: "Pagamento recusado" }
+};
+
+function getOrderStatusDescription(statusValue) {
+  const status = Object.values(OrderStatus).find(s => s.value === statusValue);
+  return status ? status.description : "Status desconhecido";
+}
+
 const PedidoForm = () => {
   const usuario = JSON.parse(sessionStorage.getItem("user"));
-  const [order, setOrder] = useState({ name: "", description: "", value: "" });
+  const [order, setOrder] = useState({ name: "", description: "", value: "", id: "" });
   const [orders, setOrders] = useState([]);
   const [submitted, setSubmitted] = useState(false);
   const [showDetailsModal, setShowDetailsModal] = useState(false);
@@ -20,6 +32,7 @@ const PedidoForm = () => {
   const [editedOrder, setEditedOrder] = useState(null);
   const [showStatusModal, setShowStatusModal] = useState(false);
   const [selectedOrderStatus, setSelectedOrderStatus] = useState(null);
+  const [selectedOrderStatusHistoric, setSelectedOrderStatusHistoric] = useState(null);
 
   useEffect(() => {
     fetchOrders();
@@ -27,7 +40,7 @@ const PedidoForm = () => {
 
   const fetchOrders = async () => {
     try {
-      const response = await fetch("https://localhost:7199/api/order");
+      const response = await fetch("http://localhost:5152/api/order");
       if (response.ok) {
         const orders = await response.json();
         setOrders(orders);
@@ -56,7 +69,7 @@ const PedidoForm = () => {
     };
 
     try {
-      const response = await fetch("https://localhost:7199/api/order", {
+      const response = await fetch("http://localhost:5152/api/order", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -67,7 +80,7 @@ const PedidoForm = () => {
       if (response.ok) {
         const createdOrder = await response.json();
         setOrders([...orders, createdOrder]);
-        setOrder({ name: "", description: "", value: "" });
+        setOrder({ name: createdOrder.name, description: createdOrder.description, value: createdOrder.value, id: createdOrder.id });
         setSubmitted(true);
         setTimeout(() => setSubmitted(false), 2000);
       } else {
@@ -80,7 +93,7 @@ const PedidoForm = () => {
 
   const handleDetails = async (order) => {
     try {
-      const response = await fetch(`https://localhost:7199/api/order/${order.id}`);
+      const response = await fetch(`http://localhost:5152/api/order/${order.id}`);
       if (response.ok) {
         const orderDetails = await response.json();
         setSelectedOrder(orderDetails);
@@ -100,7 +113,7 @@ const PedidoForm = () => {
 
   const saveOrderChanges = async () => {
     try {
-      const response = await fetch(`https://localhost:7199/api/order/${editedOrder.id}`, {
+      const response = await fetch(`http://localhost:5152/api/order/${editedOrder.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -120,10 +133,22 @@ const PedidoForm = () => {
       console.error("Erro ao conectar ao servidor:", error);
     }
   };
-
-  const handleViewStatus = (order) => {
-    setSelectedOrderStatus(order.statusHistory);
-    setShowStatusModal(true);
+  console.log(order);
+  const handleViewStatus = async (order) => {
+    try {
+      const response = await fetch(`http://localhost:5152/api/order/${order.id}/status-history`);
+      if (response.ok) {
+        const statusHistory = await response.json();
+        console.log(statusHistory);
+        setSelectedOrderStatus(statusHistory);
+        setSelectedOrderStatusHistoric(statusHistory);
+        setShowStatusModal(true);
+      } else {
+        console.error("Erro ao buscar histórico de status do pedido");
+      }
+    } catch (error) {
+      console.error("Erro ao conectar ao servidor:", error);
+    }
   };
 
   const saveUserChanges = () => {
@@ -239,7 +264,7 @@ const PedidoForm = () => {
           </ul>
         )}
       </div>
-
+      {console.log("Selected Order:", selectedOrderStatusHistoric)}
       {/* Modal de Detalhes do Pedido */}
       {showDetailsModal && selectedOrder && (
         <div className="modal-overlay">
@@ -247,8 +272,16 @@ const PedidoForm = () => {
             <h2>Detalhes do Pedido</h2>
             <p><strong>Nome:</strong> {selectedOrder.name}</p>
             <p><strong>Descrição:</strong> {selectedOrder.description}</p>
-            <p><strong>Valor:</strong> R$ {selectedOrder.value}</p>
-            <p><strong>Status Atual:</strong> {selectedOrder.status}</p>
+            <p><strong>Valor:</strong> R$ {selectedOrder.price}</p>
+            <p><strong>Histórico de Status:</strong></p>
+            <ul>
+              {selectedOrder.statusHistory?.map((statusHist, index) => (
+                <li key={index}>
+                  {getOrderStatusDescription(statusHist.OrderStatus)} -{" "}
+                  {new Date(statusHist.Date).toLocaleString()}
+                </li>
+              ))}
+            </ul>
             <button
               className="order-button"
               onClick={() => setShowDetailsModal(false)}

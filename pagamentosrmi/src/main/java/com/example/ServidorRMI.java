@@ -6,7 +6,7 @@ import java.rmi.registry.Registry;
 public class ServidorRMI {
     public static void main(String[] args) {
         try {
-            System.setProperty("java.rmi.server.hostname", "172.17.0.2");
+            System.setProperty("java.rmi.server.hostname", "localhost");
 
             Pedido pedido = new PedidoImpl();
 

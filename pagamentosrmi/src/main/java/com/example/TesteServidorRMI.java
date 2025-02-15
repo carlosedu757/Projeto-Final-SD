@@ -31,7 +31,7 @@ public class TesteServidorRMI {
 
             // Chamar um método do serviço para testar a comunicação
             System.out.println("Chamando método 'atualizarStatus'...");
-            String resultado = pedido.atualizarStatus(2);
+            String resultado = pedido.atualizarStatus(15);
             System.out.println("Resposta do servidor: " + resultado);
 
             System.out.println("Teste concluído com sucesso!");

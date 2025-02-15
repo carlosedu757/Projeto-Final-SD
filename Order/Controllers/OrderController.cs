@@ -4,6 +4,7 @@ using Order.Logs;
 
 namespace Order.Controllers;
 
+using global::Models;
 using Models;
 
 [ApiController]
@@ -38,7 +39,7 @@ public class OrderController : ControllerBase
     public async Task<ActionResult<Order>> GetOrderByIdAsync([FromRoute] int id)
     {
         var order = await OrderDb.GetOrderByIdAsync(id);
-        
+
         return Ok(order);
     }
     
@@ -80,6 +81,27 @@ public class OrderController : ControllerBase
         {
             Console.WriteLine(e);
             throw;
+        }
+    }
+
+    [HttpGet("{id:int}/status-history")]
+    public async Task<ActionResult<List<OrderStatusHistory>>> GetOrderStatusHistoryAsync([FromRoute] int id)
+    {
+        try
+        {
+            var statusHistory = await OrderDb.GetOrderStatusHistoryAsync(id);
+
+            if (statusHistory == null)
+            {
+                return NotFound($"Nenhum histórico de status encontrado para o pedido com ID {id}.");
+            }
+
+            return Ok(statusHistory);
+        }
+        catch (Exception e)
+        {
+            RegisterLog.RegisterError("GetOrderStatusHistory", "", e.Message);
+            return StatusCode(500, "Erro interno ao recuperar o histórico de status.");
         }
     }
 }

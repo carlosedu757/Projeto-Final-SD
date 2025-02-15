@@ -7,6 +7,7 @@ using Order.Logs;
 
 namespace Order.Data;
 
+using global::Models;
 using Models;
 
 public class OrderDb
@@ -105,6 +106,37 @@ public class OrderDb
         catch (Exception e)
         {
             Console.WriteLine(e);
+            throw;
+        }
+    }
+
+    public async Task<List<OrderStatusHistory>> GetOrderStatusHistoryAsync(int orderId)
+    {
+        const string sql = @"
+        SELECT 
+            Id,
+            Description,
+            PedidoId,
+            OrderStatus,
+            Date AS Timestamp
+        FROM 
+            tb_pedidosstatushistoric
+        WHERE 
+            PedidoId = @PedidoId
+        ORDER BY 
+            Date ASC"; // Ordena pelo tempo para mostrar a sequência correta
+
+        try
+        {
+            await using var connection = new SqlConnection(ConnectionString);
+
+            var statusHistory = await connection.QueryAsync<OrderStatusHistory>(sql, new { PedidoId = orderId });
+
+            return statusHistory.ToList();
+        }
+        catch (Exception e)
+        {
+            RegisterLog.RegisterError("GetOrderStatusHistoryAsync", $"Erro ao buscar histórico de status para o pedido com ID {orderId}", e.Message);
             throw;
         }
     }

@@ -1,0 +1,224 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Carlos Eduardo\\source\\repos\\Projeto-Final-SD\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4EBFD368-34EF-4969-85F7-60A92BD3B3E1}|Order\\Order.csproj|c:\\users\\carlos eduardo\\source\\repos\\projeto-final-sd\\order\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4EBFD368-34EF-4969-85F7-60A92BD3B3E1}|Order\\Order.csproj|solutionrelative:order\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4EBFD368-34EF-4969-85F7-60A92BD3B3E1}|Order\\Order.csproj|c:\\users\\carlos eduardo\\source\\repos\\projeto-final-sd\\order\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4EBFD368-34EF-4969-85F7-60A92BD3B3E1}|Order\\Order.csproj|solutionrelative:order\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4EBFD368-34EF-4969-85F7-60A92BD3B3E1}|Order\\Order.csproj|c:\\users\\carlos eduardo\\source\\repos\\projeto-final-sd\\order\\models\\createorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4EBFD368-34EF-4969-85F7-60A92BD3B3E1}|Order\\Order.csproj|solutionrelative:order\\models\\createorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4EBFD368-34EF-4969-85F7-60A92BD3B3E1}|Order\\Order.csproj|c:\\users\\carlos eduardo\\source\\repos\\projeto-final-sd\\order\\models\\orderstatushistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4EBFD368-34EF-4969-85F7-60A92BD3B3E1}|Order\\Order.csproj|solutionrelative:order\\models\\orderstatushistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4EBFD368-34EF-4969-85F7-60A92BD3B3E1}|Order\\Order.csproj|c:\\users\\carlos eduardo\\source\\repos\\projeto-final-sd\\order\\data\\orderdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4EBFD368-34EF-4969-85F7-60A92BD3B3E1}|Order\\Order.csproj|solutionrelative:order\\data\\orderdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4EBFD368-34EF-4969-85F7-60A92BD3B3E1}|Order\\Order.csproj|c:\\users\\carlos eduardo\\source\\repos\\projeto-final-sd\\order\\models\\orderstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4EBFD368-34EF-4969-85F7-60A92BD3B3E1}|Order\\Order.csproj|solutionrelative:order\\models\\orderstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4EBFD368-34EF-4969-85F7-60A92BD3B3E1}|Order\\Order.csproj|c:\\users\\carlos eduardo\\source\\repos\\projeto-final-sd\\order\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4EBFD368-34EF-4969-85F7-60A92BD3B3E1}|Order\\Order.csproj|solutionrelative:order\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4EBFD368-34EF-4969-85F7-60A92BD3B3E1}|Order\\Order.csproj|c:\\users\\carlos eduardo\\source\\repos\\projeto-final-sd\\order\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{4EBFD368-34EF-4969-85F7-60A92BD3B3E1}|Order\\Order.csproj|solutionrelative:order\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4EBFD368-34EF-4969-85F7-60A92BD3B3E1}|Order\\Order.csproj|c:\\users\\carlos eduardo\\source\\repos\\projeto-final-sd\\order\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{4EBFD368-34EF-4969-85F7-60A92BD3B3E1}|Order\\Order.csproj|solutionrelative:order\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4EBFD368-34EF-4969-85F7-60A92BD3B3E1}|Order\\Order.csproj|c:\\users\\carlos eduardo\\source\\repos\\projeto-final-sd\\order\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4EBFD368-34EF-4969-85F7-60A92BD3B3E1}|Order\\Order.csproj|solutionrelative:order\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4EBFD368-34EF-4969-85F7-60A92BD3B3E1}|Order\\Order.csproj|c:\\users\\carlos eduardo\\source\\repos\\projeto-final-sd\\order\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{4EBFD368-34EF-4969-85F7-60A92BD3B3E1}|Order\\Order.csproj|solutionrelative:order\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4EBFD368-34EF-4969-85F7-60A92BD3B3E1}|Order\\Order.csproj|c:\\users\\carlos eduardo\\source\\repos\\projeto-final-sd\\order\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4EBFD368-34EF-4969-85F7-60A92BD3B3E1}|Order\\Order.csproj|solutionrelative:order\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 10,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "OrderDb.cs",
+              "DocumentMoniker": "C:\\Users\\Carlos Eduardo\\source\\repos\\Projeto-Final-SD\\Order\\Data\\OrderDb.cs",
+              "RelativeDocumentMoniker": "Order\\Data\\OrderDb.cs",
+              "ToolTip": "C:\\Users\\Carlos Eduardo\\source\\repos\\Projeto-Final-SD\\Order\\Data\\OrderDb.cs",
+              "RelativeToolTip": "Order\\Data\\OrderDb.cs",
+              "ViewState": "AgIAAG0AAAAAAAAAAAAIwIQAAABtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-15T07:45:20.843Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "OrderStatusHistory.cs",
+              "DocumentMoniker": "C:\\Users\\Carlos Eduardo\\source\\repos\\Projeto-Final-SD\\Order\\Models\\OrderStatusHistory.cs",
+              "RelativeDocumentMoniker": "Order\\Models\\OrderStatusHistory.cs",
+              "ToolTip": "C:\\Users\\Carlos Eduardo\\source\\repos\\Projeto-Final-SD\\Order\\Models\\OrderStatusHistory.cs",
+              "RelativeToolTip": "Order\\Models\\OrderStatusHistory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAcAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-15T07:45:01.072Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Carlos Eduardo\\source\\repos\\Projeto-Final-SD\\Order\\Program.cs",
+              "RelativeDocumentMoniker": "Order\\Program.cs",
+              "ToolTip": "C:\\Users\\Carlos Eduardo\\source\\repos\\Projeto-Final-SD\\Order\\Program.cs",
+              "RelativeToolTip": "Order\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-15T07:21:18.215Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\Carlos Eduardo\\source\\repos\\Projeto-Final-SD\\Order\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Order\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\Carlos Eduardo\\source\\repos\\Projeto-Final-SD\\Order\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Order\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-15T07:19:41.752Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Carlos Eduardo\\source\\repos\\Projeto-Final-SD\\Order\\appsettings.json",
+              "RelativeDocumentMoniker": "Order\\appsettings.json",
+              "ToolTip": "C:\\Users\\Carlos Eduardo\\source\\repos\\Projeto-Final-SD\\Order\\appsettings.json",
+              "RelativeToolTip": "Order\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-15T07:19:40.624Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CreateOrder.cs",
+              "DocumentMoniker": "C:\\Users\\Carlos Eduardo\\source\\repos\\Projeto-Final-SD\\Order\\Models\\CreateOrder.cs",
+              "RelativeDocumentMoniker": "Order\\Models\\CreateOrder.cs",
+              "ToolTip": "C:\\Users\\Carlos Eduardo\\source\\repos\\Projeto-Final-SD\\Order\\Models\\CreateOrder.cs",
+              "RelativeToolTip": "Order\\Models\\CreateOrder.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-15T07:16:58.57Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Order.cs",
+              "DocumentMoniker": "C:\\Users\\Carlos Eduardo\\source\\repos\\Projeto-Final-SD\\Order\\Models\\Order.cs",
+              "RelativeDocumentMoniker": "Order\\Models\\Order.cs",
+              "ToolTip": "C:\\Users\\Carlos Eduardo\\source\\repos\\Projeto-Final-SD\\Order\\Models\\Order.cs",
+              "RelativeToolTip": "Order\\Models\\Order.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-15T07:15:37.373Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\Carlos Eduardo\\source\\repos\\Projeto-Final-SD\\Order\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "Order\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\Carlos Eduardo\\source\\repos\\Projeto-Final-SD\\Order\\Controllers\\UserController.cs",
+              "RelativeToolTip": "Order\\Controllers\\UserController.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAcwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-15T07:14:26.69Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "OrderStatus.cs",
+              "DocumentMoniker": "C:\\Users\\Carlos Eduardo\\source\\repos\\Projeto-Final-SD\\Order\\Models\\OrderStatus.cs",
+              "RelativeDocumentMoniker": "Order\\Models\\OrderStatus.cs",
+              "ToolTip": "C:\\Users\\Carlos Eduardo\\source\\repos\\Projeto-Final-SD\\Order\\Models\\OrderStatus.cs",
+              "RelativeToolTip": "Order\\Models\\OrderStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-15T07:14:25.815Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "C:\\Users\\Carlos Eduardo\\source\\repos\\Projeto-Final-SD\\Order\\Dockerfile",
+              "RelativeDocumentMoniker": "Order\\Dockerfile",
+              "ToolTip": "C:\\Users\\Carlos Eduardo\\source\\repos\\Projeto-Final-SD\\Order\\Dockerfile",
+              "RelativeToolTip": "Order\\Dockerfile",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-02-15T07:14:17.599Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "C:\\Users\\Carlos Eduardo\\source\\repos\\Projeto-Final-SD\\Order\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "Order\\Controllers\\OrderController.cs",
+              "ToolTip": "C:\\Users\\Carlos Eduardo\\source\\repos\\Projeto-Final-SD\\Order\\Controllers\\OrderController.cs*",
+              "RelativeToolTip": "Order\\Controllers\\OrderController.cs*",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAmwFwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-15T07:14:01.759Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "C:\\Users\\Carlos Eduardo\\source\\repos\\Projeto-Final-SD\\Order\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "Order\\Controllers\\LoginController.cs",
+              "ToolTip": "C:\\Users\\Carlos Eduardo\\source\\repos\\Projeto-Final-SD\\Order\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "Order\\Controllers\\LoginController.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-15T07:13:49.664Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

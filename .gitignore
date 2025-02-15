@@ -4,3 +4,6 @@
 /Client/ClienteAPI/obj
 /Client/ClienteAPI/.vs
 /.idea
+/Order/bin
+/Order/obj
+/Order/.vs
