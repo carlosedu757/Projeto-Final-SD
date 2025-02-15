@@ -10,6 +10,8 @@ import (
 	pb "notification-server/internal/grpc"
 
 	"google.golang.org/grpc"
+
+	orderstatus "notification-server/internal/enum"
 )
 
 type server struct {
@@ -20,24 +22,28 @@ type server struct {
 func (s *server) GetOrderStatus(ctx context.Context, req *pb.OrderRequest) (*pb.OrderResponse, error) {
 	orderID := req.GetOrderId()
 
-	// Consulta o status do pedido no banco de dados
-	var status string
-	err := s.db.QueryRow("SELECT status FROM pedidosStatusHistoric WHERE id = @p1", sql.Named("p1", orderID)).Scan(&status)
+	var rawStatus int
+	err := s.db.QueryRow("SELECT status FROM tb_pedidos WHERE id = @p1", sql.Named("p1", orderID)).Scan(&rawStatus)
 	if err != nil {
 		return nil, fmt.Errorf("erro ao buscar status do pedido: %v", err)
 	}
 
-	// Salva o status na tabela de histórico
-	_, err = s.db.Exec("INSERT INTO pedidosStatusHistoric (id, status) VALUES (@p1, @p2)", sql.Named("p1", orderID), sql.Named("p2", status))
+	status, err := orderstatus.ParseStatus(rawStatus)
 	if err != nil {
-		return nil, fmt.Errorf("erro ao salvar status do pedido: %v", err)
+		return nil, fmt.Errorf("erro ao converter status: %v", err)
+	}
+
+	description := status.GetDescription()
+
+	_, err = s.db.Exec("INSERT INTO tb_pedidosstatushistoric (Description, PedidoId, OrderStatus) VALUES (@p1, @p2, @p3)", sql.Named("p1", description), sql.Named("p2", orderID), sql.Named("p3", status))
+	if err != nil {
+		return nil, fmt.Errorf("erro ao salvar historico do pedido: %v", err)
 	}
 
 	return &pb.OrderResponse{Status: status}, nil
 }
 
 func main() {
-	// Configuração da conexão com o banco de dados
 	connString := "server=tcp:pedidos-server.database.windows.net,1433;user id=miguel.farias;password=-3L4)jH42@=;database=db_pedidos;encrypt=true;trustservercertificate=false;connection timeout=30;"
 	db, err := sql.Open("sqlserver", connString)
 	if err != nil {
@@ -45,13 +51,11 @@ func main() {
 	}
 	defer db.Close()
 
-	// Testa a conexão com o banco de dados
 	err = db.Ping()
 	if err != nil {
 		log.Fatalf("Erro ao testar conexão com o banco de dados: %v", err)
 	}
 
-	// Inicia o servidor GRPC
 	lis, err := net.Listen("tcp", ":50051")
 	if err != nil {
 		log.Fatalf("Falha ao escutar na porta 50051: %v", err)
