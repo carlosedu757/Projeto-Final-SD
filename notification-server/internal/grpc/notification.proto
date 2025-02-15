@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+option go_package = "notification-server/internal/grpc";
+
 package notification;
 
 service NotificationService {

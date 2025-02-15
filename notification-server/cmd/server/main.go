@@ -12,6 +12,8 @@ import (
 	"google.golang.org/grpc"
 
 	orderstatus "notification-server/internal/enum"
+
+	_ "github.com/microsoft/go-mssqldb"
 )
 
 type server struct {
@@ -23,7 +25,7 @@ func (s *server) GetOrderStatus(ctx context.Context, req *pb.OrderRequest) (*pb.
 	orderID := req.GetOrderId()
 
 	var rawStatus int
-	err := s.db.QueryRow("SELECT status FROM tb_pedidos WHERE id = @p1", sql.Named("p1", orderID)).Scan(&rawStatus)
+	err := s.db.QueryRow("SELECT OrderStatus FROM tb_pedidos WHERE id = @p1", sql.Named("p1", orderID)).Scan(&rawStatus)
 	if err != nil {
 		return nil, fmt.Errorf("erro ao buscar status do pedido: %v", err)
 	}
@@ -40,7 +42,7 @@ func (s *server) GetOrderStatus(ctx context.Context, req *pb.OrderRequest) (*pb.
 		return nil, fmt.Errorf("erro ao salvar historico do pedido: %v", err)
 	}
 
-	return &pb.OrderResponse{Status: status}, nil
+	return &pb.OrderResponse{Status: "Pedido com status " + description + " foi notificado."}, nil
 }
 
 func main() {
