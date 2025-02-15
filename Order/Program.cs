@@ -2,12 +2,21 @@ using Order.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(); 
 
 builder.Services.AddScoped<OrderDb>();
 builder.Services.AddScoped<UserDb>();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", x =>
+    {
+        x.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    });
+});
 
 builder.Services.AddControllers();
 
@@ -27,6 +36,8 @@ if (app.Environment.IsDevelopment())
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "Order API v1"); 
     });
 }
+
+app.UseCors("AllowAll");
 
 app.UseHttpsRedirection();
 app.UseRouting();

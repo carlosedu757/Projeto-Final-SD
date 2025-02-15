@@ -60,13 +60,21 @@ public class OrderController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<Order>> CreateOrderAsync([FromBody] Order order)
+    public async Task<ActionResult<Order>> CreateOrderAsync([FromBody] CreateOrder order)
     {
         try
         {
-            order = await OrderDb.CreateOrderAsync(order);
+            var newOrder = new Order
+            {
+                Name = order.Name,
+                Description = order.Description,
+                Price = order.Price,
+                UserId = order.UserId
+            };
             
-            return Created($"api/order/GetOrderByIdAsync", order);
+             newOrder = await OrderDb.CreateOrderAsync(newOrder);
+            
+            return Created($"api/order/GetOrderByIdAsync/{newOrder.Id}", newOrder);
         }
         catch (Exception e)
         {

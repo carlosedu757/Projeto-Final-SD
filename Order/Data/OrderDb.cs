@@ -17,8 +17,6 @@ public class OrderDb
     {
         ConnectionString = configuration.GetConnectionString("Azure");
     }
-
-    public IDbTransaction GetTransaction() => new SqlConnection(ConnectionString).BeginTransaction();
     
     public async Task<List<Order>> GetOrders()
     {
@@ -48,7 +46,7 @@ public class OrderDb
         {
             using var connection = new SqlConnection(ConnectionString);
             
-            var result = await connection.ExecuteScalarAsync<Order>(sql, new { Id = id });
+            var result = await connection.QuerySingleAsync<Order>(sql, new { Id = id });
 
             if (result is null)
             {
