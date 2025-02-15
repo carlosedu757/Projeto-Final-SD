@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "notification-server/internal/grpc";
+
+package notification;
+
+service NotificationService {
+  rpc GetOrderStatus (OrderRequest) returns (OrderResponse);
+}
+
+message OrderRequest {
+  int32 order_id = 1;
+}
+
+message OrderResponse {
+  string status = 1;
+}
