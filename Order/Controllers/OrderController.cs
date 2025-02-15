@@ -28,13 +28,21 @@ public class OrderController : ControllerBase
         }
         catch (Exception e)
         {
-            RegisterLog.Register("GetOrders", e.Message);
+            RegisterLog.RegisterError("GetOrders", "", e.Message);
             
             return StatusCode(500);
         }
     }
+
+    [HttpGet("{id:int}")]
+    public async Task<ActionResult<Order>> GetOrderByIdAsync([FromRoute] int id)
+    {
+        var order = await OrderDb.GetOrderByIdAsync(id);
+        
+        return Ok(order);
+    }
     
-    [HttpGet("{customerId:int}")]
+    [HttpGet("customer/{customerId:int}")]
     public async Task<ActionResult<List<Order>>> GetOrdersByCustomer([FromRoute] int customerId)
     {
         try
@@ -45,9 +53,25 @@ public class OrderController : ControllerBase
         }
         catch (Exception e)
         {
-            RegisterLog.Register("GetOrders", e.Message);
+            RegisterLog.RegisterError("GetOrders", "", e.Message);
             
             return StatusCode(500);
+        }
+    }
+
+    [HttpPost]
+    public async Task<ActionResult<Order>> CreateOrderAsync([FromBody] Order order)
+    {
+        try
+        {
+            order = await OrderDb.CreateOrderAsync(order);
+            
+            return Created($"api/order/GetOrderByIdAsync", order);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
         }
     }
 }

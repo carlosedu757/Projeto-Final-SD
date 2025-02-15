@@ -7,6 +7,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(); 
 
 builder.Services.AddScoped<OrderDb>();
+builder.Services.AddScoped<UserDb>();
 
 builder.Services.AddControllers();
 
@@ -15,7 +16,7 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    app.UseHsts();
+    app.UseHttpsRedirection();
 }
 
 if (app.Environment.IsDevelopment())
