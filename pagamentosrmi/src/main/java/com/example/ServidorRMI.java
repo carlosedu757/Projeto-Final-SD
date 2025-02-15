@@ -1,4 +1,4 @@
-package com.exemplo;
+package com.example;
 
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;

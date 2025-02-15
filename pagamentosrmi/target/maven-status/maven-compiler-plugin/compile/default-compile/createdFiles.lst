@@ -1,0 +1,5 @@
+com\example\ClienteRMI.class
+com\example\Pedido.class
+com\example\PedidoImpl.class
+com\example\TesteConexao.class
+com\example\ServidorRMI.class
