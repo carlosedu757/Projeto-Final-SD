@@ -6,13 +6,12 @@ import java.rmi.registry.Registry;
 public class ServidorRMI {
     public static void main(String[] args) {
         try {
-            // Cria uma instância do objeto remoto
+            System.setProperty("java.rmi.server.hostname", "172.17.0.2");
+
             Pedido pedido = new PedidoImpl();
 
-            // Cria o registro RMI na porta 1099
             Registry registry = LocateRegistry.createRegistry(1099);
 
-            // Registra o objeto remoto no registro
             registry.rebind("PedidoService", pedido);
 
             System.out.println("Servidor RMI iniciado e pronto para receber requisições.");

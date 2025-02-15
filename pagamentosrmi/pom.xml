@@ -45,7 +45,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>com.example.TesteConexao</mainClass>
+                            <mainClass>com.example.ServidorRMI</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

@@ -1,5 +1,5 @@
 # Usar uma imagem base com JDK e Maven instalados
-FROM maven:3.8.6-openjdk-17 AS build
+FROM maven:3.8.8-eclipse-temurin-17 AS build
 
 # Definir o diretório de trabalho dentro do container
 WORKDIR /app
@@ -23,7 +23,7 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Copiar o JAR compilado da fase anterior
-COPY --from=build /app/target/pagamentosrmi-1.0-SNAPSHOT.jar app.jar
+COPY --from=build /app/target/pagamentosrmi-1.0-SNAPSHOT-jar-with-dependencies.jar app.jar
 
 # Expor a porta 1099 (usada pelo RMI)
 EXPOSE 1099
