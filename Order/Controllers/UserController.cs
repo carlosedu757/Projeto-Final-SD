@@ -24,12 +24,17 @@ public class UserController : ControllerBase
         return Ok(users);
     }
     
-    [HttpGet("email")]
-    public async Task<ActionResult<UserResponse>> GetUserByEmailAsync([FromBody] string email)
+    [HttpGet("{id:int}")]
+    public async Task<ActionResult<UserResponse>> GetUserById([FromRoute] int id)
     {
-        var user = await UserDb.GetUserByEmailAsync(email);
+        var user = await UserDb.GetUserById(id);
         
-        return Ok(user);
+        return Ok(new UserResponse
+        {
+            Id = user.Id,
+            Name = user.Name,
+            Email = user.Email,
+        });
     }
 
     [HttpPost]

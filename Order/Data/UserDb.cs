@@ -61,38 +61,9 @@ public class UserDb
         }
     }
 
-    public async Task<User> InsertUserAsync(User user)
-    {
-        var sql = @"INSERT INTO tb_usuario(Name, Email, PasswordHash) 
-                        VALUES(@Name, @Email, @PasswordHash)";
-        try
-        {
-            using var connection = new SqlConnection(ConnectionString);
-
-            var result = await connection.ExecuteScalarAsync<User>(sql, new
-            {
-                user.Name,
-                user.Email,
-                PasswordHash = BCrypt.Net.BCrypt.HashPassword(user.Password)
-            }) ?? null;
-
-            if (result != null)
-            {
-                user.Id = result.Id;
-            }
-
-            return user;
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            throw;
-        }
-    }
-
     public async Task<User> CreateUserAsync(User user)
     {
-        var sql = "INSERT INTO tb_usuario(name, email, passwordhash) VALUES (@name, @email, @PasswordHash)";
+        var sql = "INSERT INTO tb_usuario(name, email, password) VALUES (@name, @email, @Password)";
         
         try
         {
@@ -166,6 +137,30 @@ public class UserDb
                 "Quantidade de linhas alteradas maior que 1", 
                 e.Message);
             
+            throw;
+        }
+    }
+
+    public async Task<User> GetUserById(int id)
+    {
+        var sql = "SELECT * FROM tb_usuario WHERE Id = @id";
+
+        try
+        {
+            using var connection = new SqlConnection(ConnectionString);
+            
+            var user = await connection.QuerySingleAsync<User>(sql, new { id });
+
+            if (user is null)
+            {
+                throw new Exception($"User with id {id} does not exist");
+            }
+            
+            return user;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
             throw;
         }
     }
