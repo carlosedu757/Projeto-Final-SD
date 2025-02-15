@@ -3,3 +3,4 @@
 *.bin
 /Client/ClienteAPI/obj
 /Client/ClienteAPI/.vs
+/.idea

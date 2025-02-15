@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package notification;
+
+service NotificationService {
+  rpc GetOrderStatus (OrderRequest) returns (OrderResponse);
+}
+
+message OrderRequest {
+  int32 order_id = 1;
+}
+
+message OrderResponse {
+  string status = 1;
+}
